@@ -1,149 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Feed</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
+
 <body class="bg-light">
 
-  <!-- 🔝 NAVBAR -->
-  <nav class="navbar navbar-light bg-white border-bottom px-4">
-    <a class="navbar-brand fw-bold" href="#">Instagram</a>
+<!-- 🔝 NAVBAR -->
+<nav class="navbar navbar-light bg-white border-bottom px-4">
+  <a class="navbar-brand fw-bold" href="#">
+    <i class="fa-brands fa-instagram me-1"></i> Instagram
+  </a>
 
-    <div class="d-flex">
+  <div class="d-flex">
 
-      <!-- Botón Modal -->
-      <button class="btn btn-success me-2"
-              data-bs-toggle="modal"
-              data-bs-target="#newPostModal">
-        Create a new post
+    <button class="btn btn-success me-2"
+            data-bs-toggle="modal"
+            data-bs-target="#newPostModal">
+      Create a new post
+    </button>
+
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle"
+              data-bs-toggle="dropdown">
+        <i class="fa-solid fa-gear"></i>
       </button>
 
-      <!-- Dropdown -->
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle"
-                data-bs-toggle="dropdown">
-          ⚙
-        </button>
-
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">Profile</a></li>
-          <li><a class="dropdown-item" href="#">Settings</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
-        </ul>
-      </div>
-
-    </div>
-  </nav>
-
-
-  <!-- 🔘 BOTONES DE VISTA -->
-  <div class="container text-center my-4">
-    <button class="btn btn-outline-secondary me-2">🔲 Grid View</button>
-    <button class="btn btn-outline-secondary">📄 List View</button>
-  </div>
-
-
-  <!-- 🖼️ GRID 3 COLUMNAS -->
-  <div class="container">
-    <div class="row g-3">
-
-      <div class="col-12 col-md-4">
-        <img src="https://picsum.photos/500?1" class="img-fluid rounded">
-      </div>
-
-      <div class="col-12 col-md-4">
-        <img src="https://picsum.photos/500?2" class="img-fluid rounded">
-      </div>
-
-      <div class="col-12 col-md-4">
-        <img src="https://picsum.photos/500?3" class="img-fluid rounded">
-      </div>
-
-      <div class="col-12 col-md-4">
-        <img src="https://picsum.photos/500?4" class="img-fluid rounded">
-      </div>
-
-      <div class="col-12 col-md-4">
-        <img src="https://picsum.photos/500?5" class="img-fluid rounded">
-      </div>
-
-      <div class="col-12 col-md-4">
-        <img src="https://picsum.photos/500?6" class="img-fluid rounded">
-      </div>
-
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+      </ul>
     </div>
   </div>
+</nav>
 
 
-  <!-- 📄 FEED 1 IMAGEN POR FILA -->
-  <div class="container my-5">
+<!-- 🔘 BOTONES DE VISTA -->
+<div class="container text-center my-4">
+  <button class="btn btn-outline-secondary me-2" onclick="showGrid()">
+    <i class="fa-solid fa-table-cells"></i>
+  </button>
 
-    <div class="card mb-4">
-      <div class="card-header d-flex justify-content-between">
-        <strong>My first photo</strong>
-        <span>12/14</span>
-      </div>
-      <img src="https://picsum.photos/800?7" class="card-img-top">
-      <div class="card-body">
-        <p><strong>204 Likes</strong></p>
-        <p>This is an example of a very good photo that you can post on Instagram.</p>
-      </div>
-    </div>
-
-    <div class="card mb-4">
-      <div class="card-header d-flex justify-content-between">
-        <strong>Another photo</strong>
-        <span>12/15</span>
-      </div>
-      <img src="https://picsum.photos/800?8" class="card-img-top">
-      <div class="card-body">
-        <p><strong>150 Likes</strong></p>
-        <p>This is another amazing picture.</p>
-      </div>
-    </div>
-
-  </div>
-
-
-  <!-- 🪟 MODAL -->
-  <div class="modal fade" id="newPostModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <h5 class="modal-title">Create a new post</h5>
-          <button class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-
-        <div class="modal-body">
-          <textarea class="form-control mb-3"
-                    placeholder="What's on your mind?"></textarea>
-
-          <div>
-            <button class="btn btn-light">📷</button>
-            <button class="btn btn-light">📍</button>
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button class="btn btn-secondary"
-                  data-bs-dismiss="modal">
-            Close
-          </button>
-          <button class="btn btn-success">
-            Publish
-          </button>
-        </div>
-
-      </div>
-    </div>
+  <button class="btn btn-outline-secondary" onclick="showList()">
+    <i class="fa-solid fa-square"></i>
+  </button>
 </div>
- 
 
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>   
+
+<!-- 🖼️ GRID VIEW -->
+<div class="container" id="gridView">
+  <div class="row g-3">
+
+    <div class="col-12 col-md-4">
+      <img src="https://picsum.photos/500?1" class="img-fluid rounded">
+    </div>
+
+    <div class="col-12 col-md-4">
+      <img src="https://picsum.photos/500?2" class="img-fluid rounded">
+    </div>
+
+    <div class="col-12 col-md-4">
+      <img src="https://picsum.photos/500?3" class="img-fluid rounded">
+    </div>
+
+    <div class="col-12 col-md-4">
+      <img src="https://picsum.photos/500?4" class="img-fluid rounded">
+    </div>
+
+    <div class="col-12 col-md-4">
+      <img src="https://picsum.photos/500?5" class="img-fluid rounded">
+    </div>
+
+    <div class="col-12 col-md-4">
+      <img src="https://picsum.photos/500?6" class="img-fluid rounded">
+    </div>
+
+  </div>
+</div>
+
+
+<!-- 📄 LIST VIEW -->
+<div class="container my-5 d-none" id="listView">
+
+  <div class="card mb-4">
+    <div class="card-header d-flex justify-content-between">
+      <strong>My first photo</strong>
+      <span>12/14</span>
+    </div>
+    <img src="https://picsum.photos/800?7" class="card-img-top">
+    <div class="card-body">
+      <p><strong>204 Likes</strong></p>
+      <p>This is an example of a very good photo.</p>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-header d-flex justify-content-between">
+      <strong>Another photo</strong>
+      <span>12/15</span>
+    </div>
+    <img src="https://picsum.photos/800?8" class="card-img-top">
+    <div class="card-body">
+      <p><strong>150 Likes</strong></p>
+      <p>This is another amazing picture.</p>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- 🪟 MODAL -->
+<div class="modal fade" id="newPostModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Create a new post</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <textarea class="form-control mb-3"
+                  placeholder="What's on your mind?"></textarea>
+
+        <div>
+          <button class="btn btn-light">
+            <i class="fa-solid fa-camera"></i>
+          </button>
+
+          <button class="btn btn-light">
+            <i class="fa-solid fa-location-dot"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary"
+                data-bs-dismiss="modal">
+          Close
+        </button>
+        <button class="btn btn-success">
+          Publish
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- 🔁 SCRIPT CAMBIO DE VISTA -->
+<script>
+function showGrid() {
+  document.getElementById("gridView").classList.remove("d-none");
+  document.getElementById("listView").classList.add("d-none");
+}
+
+function showList() {
+  document.getElementById("gridView").classList.add("d-none");
+  document.getElementById("listView").classList.remove("d-none");
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
